@@ -1,0 +1,37 @@
+<!-- Equipamento Form -->
+<div class="form-group">
+    <h1>Add manuals this is Equipo</h1>
+</div>
+<form method="POST" action="{% url 'manual-novo' %}" autocomplete="off">
+    {% csrf_token %} 
+
+    <div class="form-group"> 
+        <label for="equipamento">Equipo<span style="color: red;">*</span></label>
+        <select class="form-control" id="equipamento" name="equipamento" required>
+            {% for equipamentos in form.nome_equipamento %}
+            {{ equipamentos }}
+            {% endfor %}
+        </select>
+    </div> 
+    <div class="form-group">
+        <label for="ns_min">ns_min<span style="color: red;">*</span></label>
+        <input type="text" class="form-control" id="ns_min" name="ns_min" required
+        > 
+    </div>
+
+    <div class="form-group">
+        <label for="pdf">Files PDF Manuals<span style="color: red;">*</span></label>
+        <input type="file" class="input-group-text" id="pdf" name="pdf" required >
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" class="btn btn-secondary mr-2" value="Adicionar"></input> 
+        <a class="btn btn-secondary mr-2" role="button" href="{% url 'equipamentos' %}">Cancel</a> 
+    </div>
+
+     <div class="form-group">
+        {% if object.pk %}
+        <a class="btn btn-outline-dark mr-2" href="{% url 'manual-delete' object.pk %}">Delete</a>
+        {% endif %}
+    </div>
+</form>

@@ -1,0 +1,33 @@
+<h1>Tela Lista de Manuais {{ object.nome_equipamento }}</h1><br>
+<td class="text-center">
+<a class="btn btn-outline-dark" href="{% url 'manual-novo' %}">Register manuals to equipo</a>
+</td><br><br><hr><br>   
+<div class="row">
+    <div class="col">
+       <div>ID</div> 
+    </div> 
+    <div class="col">
+        <div>Id equipo</div>
+    </div>
+    <div class="col">
+       <div>Actions</div>
+    </div>
+</div><hr><br> 
+{% for form in manuais_list %} 
+<div class="row">
+    <div class="col">
+        {{ form.pk }}
+    </div>  
+    <div class="col">
+        {{ form.ns_min }}
+    </div>
+    <div class="col"> 
+         <a href="{{ form.pdf.url }}" target="_blank">{{ form.pdf.url }}</a> 
+    </div>
+    <div class="col-md-3">
+    {% if form.pk %}
+            <a class="btn btn-outline-dark" href="{% url 'manual-alterar' form.pk %}">alterar</a>
+    {% endif %}
+    </div>
+</div>
+{% endfor %} 

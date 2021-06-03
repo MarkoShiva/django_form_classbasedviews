@@ -1,0 +1,31 @@
+<!-- Equipamento Form -->
+<div class="form-group">
+    <h1>Equipo Register</h1>
+</div>
+<form method="POST" class="form" autocomplete="off">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+        <label for="nome_equipamento">Name equipo<span style="color: red;">*</span></label>
+        <input type="text" class="form-control" id="nome_equipamento" name="nome_equipamento" required autofocus
+            value="{% if request.POST %}{{ request.POST.nome_equipamento }}{% elif object.nome_equipamento %}{{ object.nome_equipamento }}{% endif %}">
+    </div>
+    <div class="form-group mb-3">
+        <label for="nome_display">Name Display<span style="color: red;">*</span></label>
+        <input type="text" class="form-control" id="nome_display" name="nome_display" required autofocus
+            value="{% if request.POST %}{{ request.POST.nome_display }}{% elif object.nome_display %}{{ object.nome_display }}{% endif %}">
+    </div>
+    <div class="form-group mb-3">
+        <label for="idsectra">ID SECTRA<span style="color: red;">*</span></label>
+        <input type="text" class="form-control" id="idsectra" name="idsectra" required autofocus
+            value="{% if request.POST %}{{ request.POST.idsectra }}{% elif object.idsectra %}{{ object.idsectra }}{% endif %}">
+    </div><br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-dark mr-2">Save</button>
+        <a class="btn btn-secondary mr-2" role="button" href="{% url 'equipamentos' %}">Cancel</a>
+    </div>
+    <div class="form-group">
+        {% if object.pk %}
+        <a class="btn btn-outline-dark mr-2" href="{% url 'equipamento-delete' object.pk %}">Delete</a>
+        {% endif %}
+    </div>
+</form>

@@ -1,0 +1,17 @@
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Delete Equipo{% endblock %}
+{% block body_title %}Delete Equipo{% endblock %}
+{% block main_content %}
+    <div class="container">
+        <h2>this equipo: {{ object.nome_equipamento }}</h2> 
+        All records are deleted!
+        </p>
+        <form method="POST" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Yes</button>
+                <div class="btn btn-primary" onclick="history.back();">Cancel</div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

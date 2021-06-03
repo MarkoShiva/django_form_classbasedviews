@@ -1,0 +1,42 @@
+<h1>ListView Equipo</h1><br>
+<td class="text-center">
+    <a class="btn btn-primary" href="{% url 'equipoamento-novo' %}">Registrar Equipo</a>
+</td><br><br><hr><br> 
+<div class="row">
+    <div class="col">
+       <div>ID</div>
+    </div>
+    <div class="col">
+      <div>Name Equipo</div>
+    </div>
+    <div class="col">
+        <div>Name Display</div>
+    </div>
+    <div class="col">
+        <div>Id equipo</div>
+    </div>
+    <div class="col-md-3">
+       <div>Actions</div>
+    </div>
+</div>
+<br><hr><br> 
+{% for objects in object_list %} 
+<div class="row">
+    <div class="col">
+        {{ objects.id }}
+    </div>
+    <div class="col">
+        {{ objects.nome_equipamento }}
+    </div>
+    <div class="col">
+        {{ objects.nome_display }}
+    </div>
+    <div class="col">
+        {{ objects.idsectra }}
+    </div>
+    <div class="col-md-3">
+        <a class="btn" href="{% url 'manuais' objects.pk %}">View</a>
+        <a class="btn" href="{% url 'equipamento-alterar' objects.pk %}">Change</a>
+    </div>
+</div>
+{% endfor %}
