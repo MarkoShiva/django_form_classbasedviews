@@ -58,6 +58,9 @@ INSTALLED_APPS = [
 	# --- My Apps ---#
 	'base',  
 	'manuais',
+
+	# --- libs ---#
+	'widget_tweaks',
 ]
 
 

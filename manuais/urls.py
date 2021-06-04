@@ -1,6 +1,12 @@
 from django.urls import path, re_path
-from manuais.views import (EquipamentosIndexView, EquipamentosListView, EquipamentosNewView, EquipamentosUpdateView, EquipamentosDeleteView, ManuaisIndexView, ManuaisListView, ManuaisDeleteView, ManuaisNewView, ManuaisUpdateView)
- 
+
+from manuais.views import (EquipamentosDeleteView, EquipamentosIndexView,
+                           EquipamentosListView, EquipamentosNewView,
+                           EquipamentosUpdateView, ManuaisDeleteView,
+                           ManuaisIndexView, ManuaisListView, ManuaisNewView,
+                           ManuaisUpdateView)
+
+# app_name = "equipment"
 
 urlpatterns = [
 	path('', EquipamentosIndexView.as_view(), name='index-equipamentos'),
